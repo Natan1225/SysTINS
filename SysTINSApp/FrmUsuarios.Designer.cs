@@ -44,7 +44,7 @@
             cmbNivel = new ComboBox();
             label5 = new Label();
             chkAtivo = new CheckBox();
-            textBox1 = new TextBox();
+            txtId = new TextBox();
             txtNome = new TextBox();
             txtEmail = new TextBox();
             txtSenha = new TextBox();
@@ -74,12 +74,14 @@
             // 
             // btnAtulizar
             // 
+            btnAtulizar.Enabled = false;
             btnAtulizar.Location = new Point(341, 204);
             btnAtulizar.Name = "btnAtulizar";
             btnAtulizar.Size = new Size(75, 23);
             btnAtulizar.TabIndex = 2;
             btnAtulizar.Text = "Atualizar";
             btnAtulizar.UseVisualStyleBackColor = true;
+            btnAtulizar.Click += btnAtulizar_Click;
             // 
             // dgvUsuarios
             // 
@@ -96,7 +98,6 @@
             dgvUsuarios.Size = new Size(500, 150);
             dgvUsuarios.TabIndex = 3;
             dgvUsuarios.CellClick += dgvUsuarios_CellClick;
-           
             // 
             // clnId
             // 
@@ -182,7 +183,6 @@
             cmbNivel.Name = "cmbNivel";
             cmbNivel.Size = new Size(121, 23);
             cmbNivel.TabIndex = 8;
-            
             // 
             // label5
             // 
@@ -206,13 +206,13 @@
             chkAtivo.Text = "Ativo";
             chkAtivo.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtId
             // 
-            textBox1.Location = new Point(126, 42);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 11;
+            txtId.Location = new Point(126, 42);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(100, 23);
+            txtId.TabIndex = 11;
             // 
             // txtNome
             // 
@@ -263,7 +263,7 @@
             Controls.Add(txtSenha);
             Controls.Add(txtEmail);
             Controls.Add(txtNome);
-            Controls.Add(textBox1);
+            Controls.Add(txtId);
             Controls.Add(chkAtivo);
             Controls.Add(label5);
             Controls.Add(cmbNivel);
@@ -296,7 +296,7 @@
         private ComboBox cmbNivel;
         private Label label5;
         private CheckBox chkAtivo;
-        private TextBox textBox1;
+        private TextBox txtId;
         private TextBox txtNome;
         private TextBox txtEmail;
         private TextBox txtSenha;

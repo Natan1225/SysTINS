@@ -73,8 +73,29 @@ namespace SysTINSApp
             int linhaAtual = dgvUsuarios.CurrentRow.Index;
             int idUser = Convert.ToInt32(dgvUsuarios.Rows[linhaAtual].Cells[0].Value);
             var usuario = Usuario.ObterPorId(idUser);
-          // MessageBox.Show(idUser.ToString());
-            
+            txtId.Text = usuario.Id.ToString();
+            txtNome.Text = usuario.Nome;
+            txtEmail.Text = usuario.Email;
+            chkAtivo.Checked = usuario.Ativo;
+            cmbNivel.SelectedValue = usuario.Nivel.Id;
+            btnAtulizar.Enabled = true;
+            // MessageBox.Show(idUser.ToString());
+
+        }
+
+        private void btnAtulizar_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new();
+            usuario.Id = int.Parse(txtId.Text);
+            usuario.Nome = txtNome.Text;
+            usuario.Senha = txtSenha.Text;
+            usuario.Nivel = Nivel.ObterPorId(Convert.ToInt32(cmbNivel.SelectedValue));
+            if (usuario.Atualizar())
+            {
+                CarregaGridUsuarios();
+                MessageBox.Show("Usuario Atualizado com Sucesso!");
+            }
+
         }
     }
 }

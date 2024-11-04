@@ -20,9 +20,10 @@ namespace SysTINSClass
                 cn.Open();
                 cmd.Connection = cn;
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                throw;
                 
             }
             return cmd;

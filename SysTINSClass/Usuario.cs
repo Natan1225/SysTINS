@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Mail;
 using System.Reflection.Metadata;
@@ -56,7 +57,7 @@ namespace SysTINSClass
         public void Inserir()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_usuario_insert";
             cmd.Parameters.Add("spnome", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = Nome;
             cmd.Parameters.AddWithValue("spemail", Email);
@@ -114,7 +115,7 @@ namespace SysTINSClass
         public bool Atualizar()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_usuario_altera";
             cmd.Parameters.AddWithValue("spid",Id);
             cmd.Parameters.AddWithValue("spnome", Nome);
@@ -143,7 +144,7 @@ namespace SysTINSClass
                     Nivel.ObterPorId(dr.GetInt32(4)),
                     dr.GetBoolean(5)
                    );
-              
+                
             }
             
             return usuario;
