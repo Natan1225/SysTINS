@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace SysTINSApp
 {
-    public partial class FrmProdutos : Form
+    public partial class FrmCategoria : Form
     {
-        public FrmProdutos()
+        public FrmCategoria()
         {
             InitializeComponent();
         }
 
-        private void btnInserir_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            var Produto = 
+
         }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SysTINSClass
 {
-    internal class Categoria
+    public class Categoria
     {
+        
+
     }
+    
 }
