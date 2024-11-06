@@ -19,7 +19,7 @@ namespace SysTINSApp
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            var Produto = 
+            
         }
     }
 }
