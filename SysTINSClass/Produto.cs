@@ -18,7 +18,7 @@ namespace SysTINSClass
         public double EstoqueMinimo { get; set; }
         public double ClasseDesconto { get; set; }
         public DateTime DataCad { get; set; }
-        public List<Endereco> Enderecos { get; set; }
+        
 
         public Produto()
         {
@@ -27,7 +27,7 @@ namespace SysTINSClass
 
 
 
-        public Produto(string codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria categoria, double estoqueMinimo, double classeDesconto, DateTime dataCad)
+        public Produto(string codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria categoria, double estoqueMinimo, double classeDesconto)
         {
             CodBar = codBar;
             Descricao = descricao;

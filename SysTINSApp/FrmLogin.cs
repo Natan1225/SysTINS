@@ -62,7 +62,7 @@ namespace SysTINSApp
                 {
                     lblMensagem.Text = "Número de Tentativas de login excedidas!";
 
-                    this.DialogResult = DialogResult.No;
+                  this.DialogResult = DialogResult.No;
                     Close();
                 }
             }

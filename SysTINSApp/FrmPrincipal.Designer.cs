@@ -57,6 +57,7 @@
             sairToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             tsslUsuario = new ToolStripStatusLabel();
+            manterToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -81,58 +82,58 @@
             // 
             clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem2, buscarToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(122, 22);
+            clientesToolStripMenuItem.Size = new Size(180, 22);
             clientesToolStripMenuItem.Text = "&Clientes";
             // 
             // novoToolStripMenuItem2
             // 
             novoToolStripMenuItem2.Name = "novoToolStripMenuItem2";
-            novoToolStripMenuItem2.Size = new Size(109, 22);
+            novoToolStripMenuItem2.Size = new Size(180, 22);
             novoToolStripMenuItem2.Text = "&Novo";
             // 
             // buscarToolStripMenuItem
             // 
             buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            buscarToolStripMenuItem.Size = new Size(109, 22);
+            buscarToolStripMenuItem.Size = new Size(180, 22);
             buscarToolStripMenuItem.Text = "&Buscar";
             // 
             // produtosToolStripMenuItem
             // 
-            produtosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoinserirToolStripMenuItem, buscarToolStripMenuItem1 });
+            produtosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoinserirToolStripMenuItem, buscarToolStripMenuItem1, manterToolStripMenuItem });
             produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            produtosToolStripMenuItem.Size = new Size(122, 22);
+            produtosToolStripMenuItem.Size = new Size(180, 22);
             produtosToolStripMenuItem.Text = "&Produtos";
             // 
             // novoinserirToolStripMenuItem
             // 
             novoinserirToolStripMenuItem.Name = "novoinserirToolStripMenuItem";
-            novoinserirToolStripMenuItem.Size = new Size(143, 22);
+            novoinserirToolStripMenuItem.Size = new Size(180, 22);
             novoinserirToolStripMenuItem.Text = "&Novo(inserir)";
             // 
             // buscarToolStripMenuItem1
             // 
             buscarToolStripMenuItem1.Name = "buscarToolStripMenuItem1";
-            buscarToolStripMenuItem1.Size = new Size(143, 22);
+            buscarToolStripMenuItem1.Size = new Size(180, 22);
             buscarToolStripMenuItem1.Text = "&Buscar";
             // 
             // usuariosToolStripMenuItem
             // 
             usuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem1, consultarToolStripMenuItem2 });
             usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            usuariosToolStripMenuItem.Size = new Size(122, 22);
+            usuariosToolStripMenuItem.Size = new Size(180, 22);
             usuariosToolStripMenuItem.Text = "&Usuarios";
             // 
             // novoToolStripMenuItem1
             // 
             novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            novoToolStripMenuItem1.Size = new Size(125, 22);
+            novoToolStripMenuItem1.Size = new Size(180, 22);
             novoToolStripMenuItem1.Text = "&Novo";
             novoToolStripMenuItem1.Click += novoToolStripMenuItem1_Click_1;
             // 
             // consultarToolStripMenuItem2
             // 
             consultarToolStripMenuItem2.Name = "consultarToolStripMenuItem2";
-            consultarToolStripMenuItem2.Size = new Size(125, 22);
+            consultarToolStripMenuItem2.Size = new Size(180, 22);
             consultarToolStripMenuItem2.Text = "&Consultar";
             // 
             // movimentoToolStripMenuItem
@@ -250,6 +251,13 @@
             tsslUsuario.Size = new Size(12, 17);
             tsslUsuario.Text = "-";
             // 
+            // manterToolStripMenuItem
+            // 
+            manterToolStripMenuItem.Name = "manterToolStripMenuItem";
+            manterToolStripMenuItem.Size = new Size(180, 22);
+            manterToolStripMenuItem.Text = "&Manter";
+            manterToolStripMenuItem.Click += manterToolStripMenuItem_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -302,5 +310,6 @@
         private ToolStripMenuItem buscarToolStripMenuItem1;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel tsslUsuario;
+        private ToolStripMenuItem manterToolStripMenuItem;
     }
 }

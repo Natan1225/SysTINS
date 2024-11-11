@@ -28,98 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtEmail = new Label();
-            textBox1 = new TextBox();
-            txtSenha = new Label();
-            textBox2 = new TextBox();
-            btnEntrar = new Label();
-            btnCancelar = new Label();
+            btnEntrar = new Button();
+            btnCancelar = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            txtEmail = new TextBox();
+            txtSenha = new TextBox();
             lblMensagem = new Label();
             SuspendLayout();
             // 
-            // txtEmail
-            // 
-            txtEmail.AutoSize = true;
-            txtEmail.Font = new Font("Segoe UI", 13F);
-            txtEmail.ForeColor = SystemColors.ButtonFace;
-            txtEmail.Location = new Point(262, 120);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(61, 25);
-            txtEmail.TabIndex = 1;
-            txtEmail.Text = "E-mail";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(262, 152);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(219, 23);
-            textBox1.TabIndex = 2;
-            // 
-            // txtSenha
-            // 
-            txtSenha.AutoSize = true;
-            txtSenha.Font = new Font("Segoe UI", 13F);
-            txtSenha.ForeColor = SystemColors.ButtonFace;
-            txtSenha.Location = new Point(262, 196);
-            txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(60, 25);
-            txtSenha.TabIndex = 3;
-            txtSenha.Text = "Senha";
-            txtSenha.Click += label2_Click;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(262, 225);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(219, 23);
-            textBox2.TabIndex = 4;
-            textBox2.UseSystemPasswordChar = true;
-            
-            // 
             // btnEntrar
             // 
-            btnEntrar.AutoSize = true;
-            btnEntrar.Location = new Point(262, 299);
+            btnEntrar.Location = new Point(91, 152);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(38, 15);
-            btnEntrar.TabIndex = 5;
+            btnEntrar.Size = new Size(95, 39);
+            btnEntrar.TabIndex = 0;
             btnEntrar.Text = "&Entrar";
+            btnEntrar.UseVisualStyleBackColor = true;
             btnEntrar.Click += btnEntrar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.AutoSize = true;
-            btnCancelar.Location = new Point(417, 299);
+            btnCancelar.Location = new Point(232, 152);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(53, 15);
-            btnCancelar.TabIndex = 6;
+            btnCancelar.Size = new Size(93, 39);
+            btnCancelar.TabIndex = 1;
             btnCancelar.Text = "&Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(75, 17);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 21);
+            label1.TabIndex = 2;
+            label1.Text = "Email";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.ForeColor = SystemColors.ControlLightLight;
+            label2.Location = new Point(75, 68);
+            label2.Name = "label2";
+            label2.Size = new Size(53, 21);
+            label2.TabIndex = 3;
+            label2.Text = "Senha";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(75, 42);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(250, 23);
+            txtEmail.TabIndex = 4;
+            // 
+            // txtSenha
+            // 
+            txtSenha.Location = new Point(75, 92);
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(250, 23);
+            txtSenha.TabIndex = 5;
+            txtSenha.UseSystemPasswordChar = true;
             // 
             // lblMensagem
             // 
             lblMensagem.AutoSize = true;
             lblMensagem.Font = new Font("Segoe UI", 12F);
             lblMensagem.ForeColor = Color.Red;
-            lblMensagem.Location = new Point(262, 266);
+            lblMensagem.Location = new Point(91, 118);
             lblMensagem.Name = "lblMensagem";
             lblMensagem.Size = new Size(0, 21);
-            lblMensagem.TabIndex = 7;
+            lblMensagem.TabIndex = 6;
             // 
             // FrmLogin
             // 
+            AcceptButton = btnEntrar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CornflowerBlue;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.RoyalBlue;
+            CancelButton = btnCancelar;
+            ClientSize = new Size(394, 203);
             ControlBox = false;
             Controls.Add(lblMensagem);
+            Controls.Add(txtSenha);
+            Controls.Add(txtEmail);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnEntrar);
-            Controls.Add(textBox2);
-            Controls.Add(txtSenha);
-            Controls.Add(textBox1);
-            Controls.Add(txtEmail);
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Load += FrmLogin_Load;
@@ -129,12 +129,14 @@
 
         #endregion
 
-        private Label txtEmail;
-        private TextBox textBox1;
-        private Label txtSenha;
-        private TextBox textBox2;
-        private Label btnEntrar;
-        private Label btnCancelar;
+        private Button btnEntrar;
+        private Button btnCancelar;
+        private Label label1;
+        private Label label2;
+        private TextBox txtEmail;
+        private TextBox txtSenha;
         private Label lblMensagem;
     }
 }
+
+    
