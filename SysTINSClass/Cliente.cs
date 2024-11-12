@@ -1,109 +1,112 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using Org.BouncyCastle.Cms;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Data;
 
 namespace SysTINSClass
 {
-    //    id int(4) AI PK
-    //nome varchar(100)
-    //cpf char (11) 
-    //telefone char (14) 
-    //email varchar(60)
-    //data_nasc date
-    //data_cad timestamp
-    //ativo bit(1)
-
-//    CREATE DEFINER =`root`@`localhost` PROCEDURE `sp_cliente_insert`(
-//spnome varchar(100), 
-//spcpf char (11), 
-//sptelefone char (14), 
-//spemail varchar(60), 
-//spdatanasc date
-//)
-//begin
-//    insert into clientes
-//    values(0, spnome, spcpf, sptelefone, spemail, spdatanasc,default,1);
-//    select last_insert_id();
-//    end
     public class Cliente
     {
         public int Id { get; set; }
-        public string? Nome { get; set; }
-        public char Cpf { get; set; }
-        public char Telefone { get; set; }
-        public string? Email { get; set; }
-        public DateTime DataNasc { get; set; }
-        public DateTime? DataCad { get; set; }
-        public bool ativo { get; set; }
+        public string Nome { get; set; }
+        public string CpfCnpj { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
+        public List<Endereco> Enderecos { get; set; }
 
-        public Cliente(int id, string? nome, char cpf, char telefone, string? email, DateTime dataNasc, DateTime? dataCad, bool ativo)
+        public Cliente()
+        {
+            Enderecos = new List<Endereco>();
+        }
+
+        public Cliente(int id, string nome, string cpfCnpj, string email, string telefone)
         {
             Id = id;
             Nome = nome;
-            Cpf = cpf;
-            Telefone = telefone;
+            CpfCnpj = cpfCnpj;
             Email = email;
-            DataNasc = dataNasc;
-            DataCad = dataCad;
-            this.ativo = ativo;
-
-
+            Telefone = telefone;
+            Enderecos = new List<Endereco>();
         }
-        public Cliente()
-        {
 
-        }
-        public void InserirCliente()
+
+        public void Inserir()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = " sp_cliente_insert";
-            cmd.Parameters.AddWithValue("spid", Id);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_cliente_insert";
             cmd.Parameters.AddWithValue("spnome", Nome);
-            cmd.Parameters.AddWithValue("spcpf", Cpf);
+            cmd.Parameters.AddWithValue("spcpf_cnpj", CpfCnpj);
+            cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("sptelefone", Telefone);
-            cmd.Parameters.AddWithValue("spemail", Email );
-            cmd.Parameters.AddWithValue("spdatanasc", DataNasc);
-            cmd.Parameters.AddWithValue("spdatacad", DataCad);
-            cmd.Parameters.AddWithValue("spativo", ativo);
-            cmd.ExecuteNonQuery();
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
             cmd.Connection.Close();
-            
-
-
         }
+
         public static Cliente ObterPorId(int id)
         {
-            Cliente cliente = new();
+            Cliente cliente = null;
             var cmd = Banco.Abrir();
-            cmd.CommandText = $"select * from clientes where id = {id}";
+            cmd.CommandText = $"SELECT * FROM clientes WHERE id = {id}";
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                cliente = new(
+                cliente = new Cliente(
                     dr.GetInt32(0),
                     dr.GetString(1),
-                    dr.GetChar(2),
-                     dr.GetChar(3),
-                     dr.GetString(4),
-                     dr.GetDateTime(5),
-                     dr.GetDateTime(6),
-                     dr.GetBoolean(7)
-                     );
-
-
-
-
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetString(4)
+                );
             }
             return cliente;
         }
 
+        public static List<Cliente> ObterLista()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            var cmd = Banco.Abrir();
+            cmd.CommandText = $"SELECT * FROM clientes";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                clientes.Add(new Cliente(
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetString(4)
+                ));
+            }
+            return clientes;
+        }
 
+        public bool Atualizar()
+        {
+            bool resposta = false;
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_cliente_update";
+            cmd.Parameters.AddWithValue("spid", Id);
+            cmd.Parameters.AddWithValue("spnome", Nome);
+            cmd.Parameters.AddWithValue("spcpf_cnpj", CpfCnpj);
+            cmd.Parameters.AddWithValue("spemail", Email);
+            cmd.Parameters.AddWithValue("sptelefone", Telefone);
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                cmd.Connection.Close();
+                resposta = true;
+            }
+            return resposta;
+        }
 
+        public void Excluir()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_cliente_delete";
+            cmd.Parameters.AddWithValue("spid", Id);
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+        }
     }
 }
