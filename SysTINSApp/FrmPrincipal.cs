@@ -29,11 +29,13 @@ namespace SysTINSApp
             if (retorno == DialogResult.OK)
             {
                 tsslUsuario.Text = Program.UsuarioLogado.Nome + " - " + Program.UsuarioLogado.Nivel.Nome;
+                MessageBox.Show($"Usuario Logado Com Sucesso!");
                 Show();
             }
 
             else
                 Application.Exit();
+
 
 
 
@@ -50,7 +52,21 @@ namespace SysTINSApp
 
         private void manterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FrmProdutos frmProdutos = new();
+            frmProdutos.MdiParent = this;
+            frmProdutos.Show();
+        }
 
+        private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmnovoCliente frmNovoCliente = new();
+            frmNovoCliente.Show();
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultaCliente frmConsultaCliente = new();
+            frmConsultaCliente.Show();
         }
     }
 }

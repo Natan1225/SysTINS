@@ -16,5 +16,17 @@ namespace SysTINSApp
         {
             InitializeComponent();
         }
+
+        private void FrmnovoCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCadas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

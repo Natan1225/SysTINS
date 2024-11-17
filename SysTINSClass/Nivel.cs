@@ -39,7 +39,7 @@ namespace SysTINSClass
             if (dr.Read())
             {
                // nivel.Id = dr.GetInt32(0);
-               //nivel.Nome = dr.GetString(1);
+              // nivel.Nome = dr.GetString(1);
                 //nivel.Sigla = dr.GetString(2);
 
                 nivel = new(dr.GetInt32(0), dr.GetString(1), dr.GetString(2));
