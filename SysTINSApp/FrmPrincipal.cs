@@ -68,5 +68,13 @@ namespace SysTINSApp
             FrmConsultaCliente frmConsultaCliente = new();
             frmConsultaCliente.Show();
         }
+
+        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmnovoPedido frmnovoPedido = new();
+            frmnovoPedido.MdiParent = this;
+            frmnovoPedido.txtUsuario.Text = Program.UsuarioLogado.Id + " - " + Program.UsuarioLogado.Nome;
+            frmnovoPedido.Show();
+        }
     }
 }
